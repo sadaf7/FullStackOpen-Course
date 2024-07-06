@@ -1,0 +1,31 @@
+SEQUENCE DIAGRAM -- Adding Notes
+
+browser --> server : POST http://fullstackopenapp/exampleapp/new_notes 
+activate server
+- data submitted to server
+deactivate server
+
+browser --> server : GET http://fullstackopenapp/exampleapp/notes
+activate server
+browser <-- server : HTML codes
+deactivate server
+
+browser --> server : GET http://fullstackopenapp/exampleapp/main.css
+activate server
+browser <-- server : main.css
+deactivate server
+
+browser --> server : GET http://fullstackopenapp/exampleapp/main.js
+activate server
+browser <-- server : main.js
+deactivate server
+
+-The browser starts executing the JavaScript code that fetches the JSON from the server.
+
+browser --> server : GET http://fullstackopenapp/exampleapp/data.json
+activate server
+browser <-- server : [ { content: "Testing", "date": "2024-7-3"}]
+deactivate server
+
+- Then the browser executes the callback function that renders the notes.
+
